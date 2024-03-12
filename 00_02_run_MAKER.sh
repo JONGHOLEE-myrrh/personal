@@ -1,4 +1,5 @@
 #!/bin/bash
+## Reference: https://darencard.net/blog/2017-05-16-maker-genome-annotation/
 
 ## 00. Print usage if the number of $# is not 1.
 if [ $# -ne 1 ]
@@ -46,6 +47,9 @@ do
     echo ${CMD2}
 #    eval ${CMD2}
 done
+
+# Wait background processes to be finished.
+wait
 
 ## 02. Arrange the output from the first round of MAKER.
 CMD3="${maker_dir}/gff3_merge -s -d ${1}_rnd1.maker.output/${1}_rnd1_master_datastore_index.log > ${1}_rnd1.maker.output/${1}_rnd1.all.maker.gff3"
